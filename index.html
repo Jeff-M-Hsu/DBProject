@@ -16,33 +16,38 @@
 	<style>
 		html{overflow-y:scroll;}
 		body{padding-top:30px;}
+		body.dark-mode {
+			background-color: #333;
+			color: white;
+			a{
+				color: #333;
+			}
+		}
 		div#header{
 			text-align: center;
 		}
-		h1{
+		h1#title{
 			margin-right: 0;
 			display: inline-block;
-
-		}
-		button#dark-mode{
 		}
 
-		.background : black;
-		#object1-list{margin-bottom: 30px;}
+
 	</style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
-    <script src="/public/core.js"></script>
+    <script src="./public/core.js"></script>
 </head>
 
 <!-- SET CONTROLLER AND GET ALL OBJECT1S -->
-<body ng-controller="mainController">
+<body id="body" ng-controller="mainController" class="light-mode">
 	<div class="container">
 		<!-- HEADER AND COUNT -->
 		<div id="header">
-			<h1 class="ui center aligned huge header">This is very time consuming when starting out</h1> <button id="dark-mode""><img src="/resources/Dark-Mode.png" width="15.36px"></button>
-
+			<h1 id="title" class="ui center aligned huge header">This is very time consuming when starting out</h1> 
+			<button class="ui secondary basic button" id="dark-mode" onclick="toggleDarkMode()">
+				<img id="icon" alt="Toggle dark mode" title="Toggle dark mode" src="./resources/Dark-Mode.png" width="15.36px"></button>
 			</div>
+
 </body>
 </html>

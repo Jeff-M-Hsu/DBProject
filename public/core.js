@@ -26,6 +26,7 @@ function mainController($scope, $http){
 		});
 	};
 
+	//delete an object1 after checking it
 	$scope.deleteObject1 = function(id){
 		$http.delete('/api/object1s' + id)
 		.success(function(data){
@@ -36,4 +37,26 @@ function mainController($scope, $http){
 			console.log('Error: ' + data)
 		});
 	};
+}
+
+function toggleDarkMode(){
+	var body = document.getElementById("body");
+	var image = document.getElementById("icon");
+	var button = document.getElementById("dark-mode")
+	var title = document.getElementById("title")
+	var mode = body.className;
+	//if mode==dark-mode then set to light-mode else set to dark-mode
+	if(mode=="dark-mode"){
+		body.className = "light-mode";
+		button.className = "ui secondary basic button";
+		title.className = "ui center aligned huge header";
+		image.src = "./resources/Dark-Mode.png";
+	}
+	else{
+		body.className = "dark-mode";
+		button.className = "ui inverted secondary basic button"
+		title.className = "ui center aligned huge inverted header";
+		image.src = "./resources/Light-Mode.png";
+
+	}
 }
