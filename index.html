@@ -25,10 +25,18 @@
 		}
 		div#header{
 			text-align: center;
+			padding: 50px;
 		}
 		h1#title{
 			margin-right: 0;
 			display: inline-block;
+		}
+		#buttoncontainer > button{
+		    padding: 14px 16px;
+		    font-size: 18px;
+		}
+		.tabcontent{
+			display: none;
 		}
 
 
@@ -41,13 +49,35 @@
 
 <!-- SET CONTROLLER AND GET ALL OBJECT1S -->
 <body id="body" ng-controller="mainController" class="light-mode">
-	<div class="container">
 		<!-- HEADER AND COUNT -->
 		<div id="header">
 			<h1 id="title" class="ui center aligned huge header">This is very time consuming when starting out</h1> 
 			<button class="ui secondary basic button" id="dark-mode" onclick="toggleDarkMode()">
 				<img id="icon" alt="Toggle dark mode" title="Toggle dark mode" src="./resources/Dark-Mode.png" width="15.36px"></button>
-			</div>
+		</div>
+		<div id="buttoncontainer" class="four ui buttons">
+			<button id="button1" class="ui button" onClick="switchTab('Section1')">button1</button>
+			<button id="button2" class="ui button" onClick="switchTab('Section2')">button2</button>
+			<button id="button3" class="ui button" onClick="switchTab('Section3')">button3</button>
+			<button id="button4" class="ui button" onClick="switchTab('Section4')">button4</button>
+		</div>
+		<div id="Section1" class="tabcontent">
+			<h3>Section 1</h3>
+			<span>This is section 1</span>
+		</div>
+		<div id="Section2" class="tabcontent">
+			<h3>Section 2</h3>
+			<span>This is section 2</span>
+		</div>
+		<div id="Section3" class="tabcontent">
+			<h3>Section 3</h3>
+			<span>This is section 3</span>
+		</div>
+		<div id="Section4" class="tabcontent">
+			<h3>Section 4</h3>
+			<span>This is section 4</span>
+		</div>
+
 
 </body>
 </html>

@@ -42,8 +42,9 @@ function mainController($scope, $http){
 function toggleDarkMode(){
 	var body = document.getElementById("body");
 	var image = document.getElementById("icon");
-	var button = document.getElementById("dark-mode")
-	var title = document.getElementById("title")
+	var button = document.getElementById("dark-mode");
+	var title = document.getElementById("title");
+	var buttonContainer = document.getElementById("buttoncontainer");
 	var mode = body.className;
 	//if mode==dark-mode then set to light-mode else set to dark-mode
 	if(mode=="dark-mode"){
@@ -51,12 +52,23 @@ function toggleDarkMode(){
 		button.className = "ui secondary basic button";
 		title.className = "ui center aligned huge header";
 		image.src = "./resources/Dark-Mode.png";
+		buttonContainer.className = "four ui buttons"
 	}
 	else{
 		body.className = "dark-mode";
 		button.className = "ui inverted secondary basic button"
 		title.className = "ui center aligned huge inverted header";
 		image.src = "./resources/Light-Mode.png";
+		buttonContainer.className = "four ui secondary buttons"
+
 
 	}
+}
+
+function switchTab(name){
+	var tabContent = document.getElementsByClassName("tabcontent");
+	for(let i = 0; i < tabContent.length; i++){
+		tabContent[i].style.display = "none";
+	}
+	document.getElementById(name).style.display = "block";
 }
