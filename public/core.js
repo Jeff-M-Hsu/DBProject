@@ -46,11 +46,13 @@ function toggleDarkMode(){
 	var title = document.getElementById("title");
 	var buttonContainer = document.getElementById("buttoncontainer");
 	var mode = body.className;
+	var header = document.getElementById("header");
 	//if mode==dark-mode then set to light-mode else set to dark-mode
 	if(mode=="dark-mode"){
 		body.className = "light-mode";
 		button.className = "ui secondary basic button";
 		title.className = "ui center aligned huge header";
+		header.style.backgroundColor = "#CCC";
 		image.src = "./resources/Dark-Mode.png";
 		buttonContainer.className = "four ui buttons"
 	}
@@ -58,6 +60,7 @@ function toggleDarkMode(){
 		body.className = "dark-mode";
 		button.className = "ui inverted secondary basic button"
 		title.className = "ui center aligned huge inverted header";
+		header.style.backgroundColor = "#111";
 		image.src = "./resources/Light-Mode.png";
 		buttonContainer.className = "four ui secondary buttons"
 
@@ -70,9 +73,10 @@ function switchTab(name,element){
 	var tabButtons = document.getElementsByClassName("ui active button");
 	for(let i = 0; i < tabContent.length; i++){
 		tabContent[i].style.display = "none";
-		if(tabButtons[i]!=null)
-			tabButtons[i].className = "ui button";
+	}
+	for(let i = 0; i < tabButtons.length; i++){
+		tabButtons[i].className = "ui button";
 	}
 	document.getElementById(name).style.display = "block";
-	document.getElementById(element).className = "ui active button";
+	element.className = "ui active button";
 }

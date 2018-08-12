@@ -15,7 +15,6 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/><!-- loads Semantic UI -->
 	<style>
 		html{overflow-y:scroll;}
-		body{padding-top:30px;}
 		body.dark-mode {
 			background-color: #333;
 			color: white;
@@ -25,9 +24,10 @@
 		}
 		div#header{
 			text-align: center;
-			padding: 50px;
+			padding: 60px 0;
+			background-color: #CCC;
 		}
-		h1#title{
+		h1{
 			margin-right: 0;
 			display: inline-block;
 		}
@@ -55,10 +55,10 @@
 				<img id="icon" alt="Toggle dark mode" title="Toggle dark mode" src="./resources/Dark-Mode.png" width="15.36px"></button>
 		</div>
 		<div id="buttoncontainer" class="four ui buttons">
-			<button id="button1" class="ui button" onClick="switchTab('Section1', 'button1')">button1</button>
-			<button id="button2" class="ui button" onClick="switchTab('Section2', 'button2')">button2</button>
-			<button id="button3" class="ui button" onClick="switchTab('Section3', 'button3')">button3</button>
-			<button id="button4" class="ui button" onClick="switchTab('Section4', 'button4')">button4</button>
+			<button id="button1" class="ui button" onClick="switchTab('Section1', this)">button1</button>
+			<button id="button2" class="ui button" onClick="switchTab('Section2', this)">button2</button>
+			<button id="button3" class="ui button" onClick="switchTab('Section3', this)">button3</button>
+			<button id="button4" class="ui button" onClick="switchTab('Section4', this)">button4</button>
 		</div>
 		<div id="Section1" class="tabcontent">
 			<h3>Section 1</h3>
