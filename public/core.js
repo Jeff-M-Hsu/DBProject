@@ -65,10 +65,14 @@ function toggleDarkMode(){
 	}
 }
 
-function switchTab(name){
+function switchTab(name,element){
 	var tabContent = document.getElementsByClassName("tabcontent");
+	var tabButtons = document.getElementsByClassName("ui active button");
 	for(let i = 0; i < tabContent.length; i++){
 		tabContent[i].style.display = "none";
+		if(tabButtons[i]!=null)
+			tabButtons[i].className = "ui button";
 	}
 	document.getElementById(name).style.display = "block";
+	document.getElementById(element).className = "ui active button";
 }
