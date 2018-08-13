@@ -14,7 +14,13 @@
 	<!-- STYLE -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/><!-- loads Semantic UI -->
 	<style>
-		html{overflow-y:scroll;}
+		html{
+			overflow-y: scroll;
+		}
+		body{
+			background-color: #FFF;
+			overflow-x
+		}
 		body.dark-mode {
 			background-color: #333;
 			color: white;
@@ -24,19 +30,47 @@
 		}
 		div#header{
 			text-align: center;
-			padding: 60px 0;
+			padding: 60px;
 			background-color: #CCC;
+			width: 100%;
 		}
 		h1{
 			margin-right: 0;
 			display: inline-block;
 		}
-		#buttoncontainer > button{
+		#tabHeaders > button{
 		    padding: 14px 16px;
 		    font-size: 18px;
 		}
 		.tabcontent{
 			display: none;
+		}
+		div#Home{
+			padding: 4% 3%;
+			width: 90%;
+			margin: 0 auto;
+		}
+		#content, #sidebar{
+			width: 100%;
+			float: left;
+		}
+		@media only screen and (min-width: 1024px){
+			div#Home{
+				margin: 0 auto;
+			}
+			div#content{
+				padding-top: 30px;
+				width: 65%;
+				float: left;
+				font-size: 16px;
+			}
+			div#sidebar{
+				padding-left: 50px;
+				padding-top: 20px;
+				width: 35%;
+				float: left;
+
+			}
 		}
 
 	</style>
@@ -54,15 +88,25 @@
 			<button class="ui secondary basic button" id="dark-mode" onclick="toggleDarkMode()">
 				<img id="icon" alt="Toggle dark mode" title="Toggle dark mode" src="./resources/Dark-Mode.png" width="15.36px"></button>
 		</div>
-		<div id="buttoncontainer" class="four ui buttons">
-			<button id="button1" class="ui button" onClick="switchTab('Section1', this)">button1</button>
+		<div id="tabHeaders" class="four ui buttons">
+			<button id="HomePage" class="ui active button" onClick="switchTab('Home', this)">Home</button>
 			<button id="button2" class="ui button" onClick="switchTab('Section2', this)">button2</button>
 			<button id="button3" class="ui button" onClick="switchTab('Section3', this)">button3</button>
 			<button id="button4" class="ui button" onClick="switchTab('Section4', this)">button4</button>
 		</div>
-		<div id="Section1" class="tabcontent">
-			<h3>Section 1</h3>
-			<span>This is section 1</span>
+		<div id="Home" class="tabcontent" style="display:block">
+			<div id="title">
+				<h1>Welcome to My Website!</h1>
+			</div>
+			<div id="content">
+				<p>My name is Jeffrey Hsu. I recently graduated from Western University with a Specialization in Computer Science and in an effort to learn more job-applicable skills on my own I am designing a personal website. As I continue development, I am learning about how to work with Javascript, CSS, Html, and plan on implementing features that utilize AngularJS, NodeJS, and MongoDB sometime in the future. If you have stumbled upon my website and have any suggestions, feedback, or inquiries, send me an email at <u>Jeff_M_Hsu@hotmail.com!</u></p>
+				<p>Aside from programming, I am very into fitness, particularly weightlifting. I first started right after I graduated from high school, and at that time I could not even do a single sit up or push up. Now I am able to deadlift 330 pounds, which is double my bodyweight! I may still have what serious lifters call newbie numbers but what matters the most to me is the difference in strength and aesthetic between now and when I was just starting out. If I could do it, so can you!</p>
+				<p>I am also quite addicted to video games, although I am trying to taper off by increasing my programming frequency and just going outside more often. The majority of gamers are currently riding the PUBG/Fortnite battle royale genre but I often choose the game less played. Does that make me a hipster? I usually only play one game at a time in order to maxmize progression speed, and right now that game is Maplestory. It's much more different than when I last played back in the early years of high school, almost as if it became a completely different game. I hope that Maplestory will become the last game I ever play because I truly do want to divert my time towards better things.</p>
+				<p>One more thing about me, I love cooking! Many may not agree and simply play food off as a means of survival, but I am a huge believer in the idea that a plate of food can be as pleasurable and emotionally and physically stimulating as any form of entertainment. It's especially nice when you have somebody to cook for who appreciates your food; the feeling of creating something that makes others happy is truly gratifying</p>
+			</div>
+			<div id="sidebar">
+				<img id="homepic" alt="A picture of me" title="Me" src="./resources/Me.png" style="max-height: 100%; max-width: 100%">
+			</div>
 		</div>
 		<div id="Section2" class="tabcontent">
 			<h3>Section 2</h3>
