@@ -44,7 +44,7 @@ function toggleDarkMode(){
 	var image = document.getElementById("icon");
 	var button = document.getElementById("dark-mode");
 	var title = document.getElementById("title");
-	var buttonContainer = document.getElementById("buttoncontainer");
+	var buttonContainer = document.getElementById("tabHeaders");
 	var mode = body.className;
 	var header = document.getElementById("header");
 	//if mode==dark-mode then set to light-mode else set to dark-mode
