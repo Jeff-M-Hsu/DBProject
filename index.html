@@ -2,7 +2,7 @@
 <!doctype html>
 
 <!-- ASSIGN OUR ANGULAR MODULE -->
-<html ng-app="jeffObj1">
+<html ng-app="jeffSite">
 <head>
 	<!-- META -->
 	<meta charset="utf-8">
@@ -19,7 +19,7 @@
 		}
 		body{
 			background-color: #FFF;
-			overflow-x
+			overflow-x: hidden;
 		}
 		body.dark-mode {
 			background-color: #333;
@@ -72,6 +72,12 @@
 
 			}
 		}
+		#login{
+			padding-right: 5px;
+			padding-top: 5px;
+			display: inline-block;
+			float: right;
+		}
 
 	</style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -82,6 +88,13 @@
 
 <!-- SET CONTROLLER AND GET ALL OBJECT1S -->
 <body id="body" ng-controller="mainController" class="light-mode">
+		<div id="topbar">
+			<div class="ui mini action input" id="login">
+				<input autocomplete="off" id="usr" type="text" placeholder="Username" value="">
+				<input id="pw" type="password" placeholder="Password" value="">
+				<button type="submit" class="ui tiny button" ng-click="login()">Login</button>
+			</div>
+		</div>
 		<!-- HEADER AND COUNT -->
 		<div id="header">
 			<h1 id="title" class="ui center aligned huge header">This is very time consuming when starting out</h1> 

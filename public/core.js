@@ -1,40 +1,13 @@
-var jeffObj1 = angular.module('jeffObj1', []);
+var jeffSite = angular.module('jeffSite', []);
 
 function mainController($scope, $http){
-	$scope.formData = {};
-	//get all object1s and show upon landing
-	$http.get('/api/object1s')
-	.success(function(data){
-		$scope.object1s = data;
-		console.log(data);
-	})
-	.error(function(data){
-		console.log('Error: ' + data);
-	});
+	$scope.username = {};
+	$scope.password = {};
 
-	//send text to node api when submitting add form
-	$scope.createObject1 = function(){
-		$http.post('/api/object1s', $scope.formData)
-		.success(function(data){
-			//clear form so user can enter another
-			$scope.formData = {};
-			$scope.object1s = data;
-			console.log(data);
-		})
-		.error(function(data){
-			console.log(data);
-		});
-	};
-
-	//delete an object1 after checking it
-	$scope.deleteObject1 = function(id){
-		$http.delete('/api/object1s' + id)
-		.success(function(data){
-			$scope.object1s = data;
-			console.log(data);
-		})
-		.error(function(data){
-			console.log('Error: ' + data)
+	$scope.login = function(){
+		$http.post('/api/users', $scope.username, $scope.password)
+			.success(function(data){
+				console.log("did it");
 		});
 	};
 }
@@ -79,4 +52,12 @@ function switchTab(name,element){
 	}
 	document.getElementById(name).style.display = "block";
 	element.className = "ui active button";
+}
+
+function loginTry(){
+	var account = document.getElementById("login");
+	console.log(
+		"username is " + account.getElementsByTagName('input')[0].value +"\n"+
+		"password is " + account.getElementsByTagName('input')[1].value
+	)
 }
