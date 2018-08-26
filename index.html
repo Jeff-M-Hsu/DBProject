@@ -73,7 +73,6 @@
 			}
 		}
 		#login{
-			padding-right: 5px;
 			padding-top: 5px;
 			display: inline-block;
 			float: right;
@@ -87,19 +86,18 @@
 </head>
 
 <!-- SET CONTROLLER AND GET ALL OBJECT1S -->
-<body id="body" ng-controller="mainController" class="light-mode">
+<body id="body" ng-controller="mainController" class="light-mode">	
 		<div id="topbar">
 			<div class="ui mini action input" id="login">
+				<button class="mini ui secondary basic button" id="dark-mode" onclick="toggleDarkMode()" style="padding-top: 7px"><img id="icon" alt="Toggle dark mode" title="Toggle dark mode" src="./resources/Dark-Mode.png" width="15.36px" style="margin-bottom: -3px"></button>
 				<input autocomplete="off" id="usr" type="text" placeholder="Username" value="">
 				<input id="pw" type="password" placeholder="Password" value="">
-				<button type="submit" class="ui tiny button" ng-click="login()">Login</button>
+				<button type="submit" class="tiny ui button" ng-click="login()" style="margin-right: 3px; padding-bottom: 8px">Login</button>
 			</div>
 		</div>
 		<!-- HEADER AND COUNT -->
 		<div id="header">
 			<h1 id="title" class="ui center aligned huge header">This is very time consuming when starting out</h1> 
-			<button class="ui secondary basic button" id="dark-mode" onclick="toggleDarkMode()">
-				<img id="icon" alt="Toggle dark mode" title="Toggle dark mode" src="./resources/Dark-Mode.png" width="15.36px"></button>
 		</div>
 		<div id="tabHeaders" class="four ui buttons">
 			<button id="HomePage" class="ui active button" onClick="switchTab('Home', this)">Home</button>

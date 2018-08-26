@@ -1,15 +1,6 @@
 var jeffSite = angular.module('jeffSite', []);
 
 function mainController($scope, $http){
-	$scope.username = {};
-	$scope.password = {};
-
-	$scope.login = function(){
-		$http.post('/api/users', $scope.username, $scope.password)
-			.success(function(data){
-				console.log("did it");
-		});
-	};
 }
 
 function toggleDarkMode(){
@@ -23,7 +14,7 @@ function toggleDarkMode(){
 	//if mode==dark-mode then set to light-mode else set to dark-mode
 	if(mode=="dark-mode"){
 		body.className = "light-mode";
-		button.className = "ui secondary basic button";
+		button.className = "mini ui secondary basic button";
 		title.className = "ui center aligned huge header";
 		header.style.backgroundColor = "#CCC";
 		image.src = "./resources/Dark-Mode.png";
@@ -31,7 +22,7 @@ function toggleDarkMode(){
 	}
 	else{
 		body.className = "dark-mode";
-		button.className = "ui inverted secondary basic button"
+		button.className = "mini ui inverted secondary basic button"
 		title.className = "ui center aligned huge inverted header";
 		header.style.backgroundColor = "#111";
 		image.src = "./resources/Light-Mode.png";
