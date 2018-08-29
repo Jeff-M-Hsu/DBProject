@@ -1,14 +1,27 @@
 var mongoose = require('mongoose');
 var User = require('./models/user');
 var Post = require('./models/post');
+var session = require('express-session');
+
 module.exports = function(app, db) {
 
   app.get('/user/:id', (req, res) => {
 	User.findById({
 		_id: req.params.id
 	}, (err, user) => {
-		if(err) throw err;
+		if(err) res.send(500);
 		if(!user) return res.send(401);
+		res.send(user);
+	});	
+  });
+
+  app.post('/user', (req, res) => {
+	User.find({
+		username: req.body.username,
+		password: req.body.password,
+	}, (err, user) => {
+		if(err) throw err;
+		if(user.length ==0) return res.send(401);
 		res.send(user);
 	});	
   });
@@ -46,4 +59,17 @@ module.exports = function(app, db) {
   app.get('/', function(req, res){
 	res.sendFile('index.html', {'root': './'});
   });
+
+
+app.use(session({ secret: 'this-is-a-secret-token', cookie: { maxAge: 60000 }}));
+app.get('/', function(req, res, next) {
+  var sessData = req.session;
+  sessData.someAttribute = "foo";
+  res.send('Returning with some text');
+});
+
+app.get('/', function(req, res, next) {
+  var someAttribute = req.session.someAttribute;
+  console.log(`This will print the attribute I set earlier: ${someAttribute}`);
+});
 }

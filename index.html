@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/><!-- loads Semantic UI -->
 	<style>
 		html{
-			overflow-y: scroll;
+			overflow-y: initial;
 		}
 		body{
 			background-color: #FFF;
@@ -29,6 +29,7 @@
 			}
 		}
 		div#header{
+			display: inline-block;
 			text-align: center;
 			padding: 60px;
 			background-color: #CCC;
@@ -72,10 +73,12 @@
 
 			}
 		}
-		#login{
-			padding-top: 5px;
+		#topbar{
 			display: inline-block;
 			float: right;
+			padding-top: 5px;
+			background-color: #CCC;
+			width: 100%;
 		}
 
 	</style>
@@ -88,12 +91,14 @@
 <!-- SET CONTROLLER AND GET ALL OBJECT1S -->
 <body id="body" ng-controller="mainController" class="light-mode">	
 		<div id="topbar">
-			<div class="ui mini action input" id="login">
-				<button class="mini ui secondary basic button" id="dark-mode" onclick="toggleDarkMode()" style="padding-top: 7px"><img id="icon" alt="Toggle dark mode" title="Toggle dark mode" src="./resources/Dark-Mode.png" width="15.36px" style="margin-bottom: -3px"></button>
-				<input autocomplete="off" id="usr" type="text" placeholder="Username" value="">
-				<input id="pw" type="password" placeholder="Password" value="">
-				<button type="submit" class="tiny ui button" ng-click="login()" style="margin-right: 3px; padding-bottom: 8px">Login</button>
+			<div class="ui mini action input" id="login" style="float: right">
+				<form id="loginForm" method="post">
+					<input autocomplete="on" id="usr" type="text" placeholder="Username" ng-model="formUsername" value="">
+					<input id="pw" type="password" placeholder="Password" value="" ng-model="formPassword">
+					<button type="submit" class="tiny ui button" ng-click="login()" style="margin-right: 3px; padding-bottom: 8px">Login</button>
+				</form>
 			</div>
+			<button class="mini ui secondary basic button" id="dark-mode" onclick="toggleDarkMode()" style="margin-top: -1px; float: right"><img id="icon" alt="Toggle dark mode" title="Toggle dark mode" src="./resources/Dark-Mode.png" width="15.36px"></button>
 		</div>
 		<!-- HEADER AND COUNT -->
 		<div id="header">
